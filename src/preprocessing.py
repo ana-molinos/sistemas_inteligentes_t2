@@ -1,5 +1,6 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
 
 COLUNAS_TREINO_COM_LABEL = ['id', 'pSist', 'pDiast', 'qPA', 'pulso', 'resp', 'gravidade', 'classe']
 
@@ -26,3 +27,10 @@ def dividir_dados(df):
     )
 
     return X_treino, X_teste, y_treino, y_teste
+
+
+def normalizar(X_treino, X_teste):
+    scaler = StandardScaler()
+    X_treino_norm = scaler.fit_transform(X_treino)
+    X_teste_norm  = scaler.transform(X_teste)
+    return X_treino_norm, X_teste_norm
