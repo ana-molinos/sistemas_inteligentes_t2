@@ -5,7 +5,7 @@ from sklearn.model_selection import GridSearchCV, KFold
 def treinar(X_treino, y_treino):
     modelo_base = RandomForestClassifier(
         criterion='entropy',
-        random_state=42
+        random_state=10
     )
 
     param_grid = {
